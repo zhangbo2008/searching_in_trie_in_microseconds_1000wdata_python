@@ -304,7 +304,12 @@ if __name__ == "__main__":
     import time
     t = time.time()
 
+
+
     if 0:
+        gfw = DFAFilter()  # 本质就是中文trie树的实现. 很简单.
+        gfw.parse("keywords_explaning_3_method")
+        print('if you are confused withe the 3 method you can set this if =true, and run the code below')
         print('性能pipei_shorest>pipei_longest>>pipei_all')
 
 
@@ -333,7 +338,7 @@ if __name__ == "__main__":
         print(gfw.pipei_all("嗷嗷"))
         print(gfw.pipei_all("苹果干"))
         print(gfw.pipei_all("苹果干什"))
-        print(gfw.pipei_all("苹果啊啊啊啊干什么苹果啊啊啊干什么"))
+        print(gfw.pipei_all("苹果干什么苹果干什么"))
 
 
 #==========
