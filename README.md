@@ -3,7 +3,7 @@
 
 just a  very simple using of trie Tree. very useful in big data of matching substring with the words in dict. you can assume the solving is a powerful version of kmp in big data.
 
-# pipei have 3 method
+# pipei have 3 method   pipei means find_substring 
 pipei_shortest : if you match the shortest word in dict, after that and you just skip this word and match the else string with the word in dict.
 
 
