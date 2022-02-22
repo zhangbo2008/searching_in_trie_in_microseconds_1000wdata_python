@@ -109,7 +109,7 @@ class DFAFilter():
             if chars[i] in level: #如果当前这个汉子存在,那么就level进入下一层.
                 level = level[chars[i]]
             else:
-                if not isinstance(level, dict):#走到头了.
+                if not isinstance(level, dict):#走到头了.说明已经存在这个level了.
                     break
                 for j in range(i, len(chars)):#建立新的子字典.
                     level[chars[j]] = {}
@@ -117,7 +117,7 @@ class DFAFilter():
                     level = level[chars[j]]
                 last_level[last_char] = {self.delimit: 0} #然后写入结束符.
                 break
-        if i == len(chars) - 1: # 说明已经有过这个字符串,那么我们就写入结束符即可.
+        if i == len(chars) - 1: # 说明已经有过这个字符串,那么我们就写入结束符即可. 比如先add 啊啊啊啊, 再 add 啊, 那么这一样代码就会触发!
             level[self.delimit] = 0
 
     def parse(self, path):
@@ -180,10 +180,10 @@ class DFAFilter():
                         out.append([old_start,start+1])
                         break
                 else:#如果char不存在,
-                    ret.append(message[start])
+
                     break
             else: # for else: 上面的break都没触发,就走这个else. 说明一直进入到了最后一层.并且里面一直都没有结束符!!!!!说明当前位置字符串只是一个前缀,不能成为单词.所以不是我们要的.
-                ret.append(message[start])
+                pass
 
             start += 1#=========这里也是可以直接跳过.
 
@@ -345,7 +345,7 @@ if __name__ == "__main__":
     print('我推荐使用pipei_shortest,或者 pipei_longest')
 
     if 1:
-        print(gfw.pipei_longest('浭澼鐛峜褙椿浭澼鐛峜褙椿浭澼鐛峜褙椿e4r32dsf顼夸劙俤軸記ds sdfsd 顼夸劙俤軸記'))
+        print(gfw.pipei_longest('32432432432dfdsf亁苜暰儞躙泎3434恜糊蕉巠捑鲌3'))
 
 
     print('查询使用的时间',time.time() - t)
